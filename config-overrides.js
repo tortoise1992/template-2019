@@ -1,5 +1,6 @@
-const { override, fixBabelImports, addLessLoader,addWebpackAlias } = require('customize-cra');
+const { override, fixBabelImports, addLessLoader,addWebpackAlias,addWebpackPlugin } = require('customize-cra');
 const path = require('path');
+const webpackbar=require('webpackbar')
 module.exports = override(
     //antd 按需加载
     fixBabelImports("import",{
@@ -29,5 +30,6 @@ module.exports = override(
     //绝对路径配置
     addWebpackAlias({        
         ["@"]: path.resolve(__dirname, "src"),
-    })
+    }),
+    addWebpackPlugin(new webpackbar())
 )
