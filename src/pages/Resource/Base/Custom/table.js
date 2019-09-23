@@ -52,17 +52,7 @@ export default class table extends Component {
             }
         })
     }
-    handleReset=(record)=>{
-        Modal.confirm({
-            title:'系统提示',
-            content:'确定重置密码吗？',
-            okText:'确定',
-            cancelText:'取消',
-            onOk:()=>{
-                message.success('操作成功')
-            }
-        })
-    }
+   
     handlePageChange=(pagination)=>{
         this.setState({
             pagination
@@ -110,9 +100,7 @@ export default class table extends Component {
                 render:(text,record)=>{
                     return (<Fragment>
                         <Button type='primary' ghost size='small' onClick={()=>{this.props.handleEdit(record)}}>编辑</Button>
-                        <Divider type='vertical'/>
-                        <Button  type='primary' ghost size='small' onClick={()=>{this.handleReset(record)}}>重置密码</Button>
-                        <Divider type='vertical'/>
+                        <Divider type='vertical'/>                        
                         <Button type='danger' ghost size='small' onClick={()=>{this.handleDelete(record)}}>删除</Button>
                     </Fragment>)
                 }
