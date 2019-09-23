@@ -1,5 +1,5 @@
 import React, { Component,Fragment } from 'react'
-import { Table,Button,Divider,Modal,message,Switch} from 'antd'
+import { Table,Button,Divider,Modal,message} from 'antd'
 export default class table extends Component {
     state={
         pagination:{
@@ -14,32 +14,73 @@ export default class table extends Component {
         data:[]
     }
     componentDidMount() {
+        this.getColumns()
         this.getData()
+    }
+    
+    getColumns=()=>{
+        let columns=[
+            {
+                title:'客户类别',
+                dataIndex:'custom_type'
+            },
+            {
+                title:'客户等级',
+                dataIndex:'custom_level'
+            },
+            {
+                title:'客户编号',
+                dataIndex:'custom_no'
+            },
+            {
+                title:'客户名称',
+                dataIndex:'custom_name'
+            },
+            {
+                title:'联系人',
+                dataIndex:'contact'
+            },
+            {
+                title:'手机',
+                dataIndex:'phone'
+            },
+            {
+                title:'应收款余额',
+                dataIndex:'should'
+            },
+            {
+                title:'地址',
+                dataIndex:'address'
+            }
+        ]
+        columns.push({
+            title:'操作',
+            dataIndex:'action',
+            align:'center',
+            render:(text,record)=>{
+                return (<Fragment>
+                    <Button type='primary' ghost size='small' onClick={()=>{this.props.handleEdit(record)}}>编辑</Button>
+                    <Divider type='vertical'/>                        
+                    <Button type='danger' ghost size='small' onClick={()=>{this.handleDelete(record)}}>删除</Button>
+                </Fragment>)
+            }
+        })
+        this.props.transformColumns(columns)
     }
     getData=()=>{
         message.info('请求数据')
-        let data=[
-            {
-                userid:'11',
-                username:'管理员',
-                name:'admin',
-                create_name:'管理员',
-                create_time:'2019-09-09',
-                update_name:'管理员',
-                update_time:'2019-09-09',
-                status:'1',
+        const res=require('@/data/resource/base/custom/list.json')
+        if(res.success){
+            let pagination={
+                ...this.state.pagination,
+                current:res.obj.current,
+                total:res.obj.total
             }
-        ]
-        // 后端必须返回总数和当前页码
-        let pagination={
-            ...this.state.pagination,
-            current:1,
-            total:1
+            this.setState({
+                data:res.obj.list,
+                pagination
+            })
         }
-        this.setState({
-            data,
-            pagination
-        })
     }
     handleDelete=(record)=>{
         Modal.confirm({
@@ -67,46 +108,7 @@ export default class table extends Component {
     }
     
     render() {
-        const columns=[
-            {
-                title:'登录名',
-                dataIndex:'name'
-            },
-            {
-                title:'用户名',
-                dataIndex:'username'
-            },
-            {
-                title:'状态',
-                dataIndex:'status',
-                render:(text,record)=>{
-                    return (
-                        <Switch checkedChildren='正常' unCheckedChildren='禁用' defaultChecked={text === '1'}/>
-                    )
-                }
-            }, 
-            {
-                title:'创建人',
-                dataIndex:'create_name'
-            },
-            {
-                title:'创建日期',
-                dataIndex:'create_time'
-            },  
-            {
-                title:'操作',
-                dataIndex:'action',
-                align:'center',
-                render:(text,record)=>{
-                    return (<Fragment>
-                        <Button type='primary' ghost size='small' onClick={()=>{this.props.handleEdit(record)}}>编辑</Button>
-                        <Divider type='vertical'/>                        
-                        <Button type='danger' ghost size='small' onClick={()=>{this.handleDelete(record)}}>删除</Button>
-                    </Fragment>)
-                }
-            }
-        ]
-        
+        const {columns}=this.props
         return (
             <Table
                 columns={columns}

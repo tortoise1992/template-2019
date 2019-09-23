@@ -15,12 +15,7 @@ export default class Index extends Component {
         },
         columns:[]
     }
-    componentDidMount() {
-        this.getColumns()
-    }
-    getColumns=()=>{
-
-    }
+    
     handleAdd=()=>{
         this.setState({
             visible:true,
@@ -61,6 +56,11 @@ export default class Index extends Component {
             }
         })
     }
+    transformColumns=(columns)=>{
+        this.setState({
+            columns
+        })
+    }
     render() {
         return (
             <Fragment>
@@ -80,6 +80,8 @@ export default class Index extends Component {
                         handleEdit={this.handleEdit}
                         ref={node=>this.node=node}
                         filterValue={this.state.filterValue}
+                        transformColumns={this.transformColumns}
+                        columns={this.state.columns}
                     />
                     {
                         this.state.visible && <Amodal
