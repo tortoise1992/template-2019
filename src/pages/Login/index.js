@@ -27,7 +27,7 @@ class LoginPage extends React.Component{
                 if(res.success){
                     message.success('登录成功')
                     localStorage.setItem('userInfo',JSON.stringify(res.obj))
-                    this.props.history.replace('/admin/home')
+                    this.props.history.push('/admin/home')
                 }
             }
         })

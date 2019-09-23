@@ -11,7 +11,7 @@ class App extends React.Component {
         return (
             <ConfigProvider  locale={zhCN}>
                 <Router>
-                    <RouterPage/>
+                    <RouterPage/>      
                 </Router>                               
             </ConfigProvider >
         );

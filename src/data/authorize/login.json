@@ -3,6 +3,37 @@
     "msg":"请求成功",
     "code":"000000",
     "obj":{
-        
+        "name":"admim",
+        "menu":[
+            {
+                "_id": "1",
+                "title": "首页",
+                "url": "/admin/home",
+                "icon": "dashboard",
+                "children": []
+            },
+            {
+                "_id": "10",
+                "title":"系统管理",
+                "url": "/admin/system",
+                "icon": "setting",
+                "children": [
+                    {
+                        "_id": "1001",
+                        "title": "用户管理",
+                        "url": "/admin/system/user",
+                        "icon": "",
+                        "children": []
+                    },
+                    {
+                        "_id": "1002",
+                        "title": "角色权限管理",
+                        "url": "/admin/system/permission",
+                        "icon": "",
+                        "children": []
+                    }
+                ]
+            }
+        ]
     }
 }
