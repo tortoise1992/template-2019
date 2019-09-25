@@ -60,6 +60,20 @@
                         "url": "/system/permission",
                         "icon": "",
                         "children": []
+                    },
+                    {
+                        "_id": "24",
+                        "title": "网站设置",
+                        "url": "/system/site",
+                        "icon": "",
+                        "children": []
+                    },
+                    {
+                        "_id": "25",
+                        "title": "菜单管理",
+                        "url": "/system/menu",
+                        "icon": "",
+                        "children": []
                     }
                 ]
             }

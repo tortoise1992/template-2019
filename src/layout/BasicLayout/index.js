@@ -21,7 +21,9 @@ class SiderDemo extends Component {
         return (
             <Layout className={styles.container}>
                 <Sider className={styles.sider} trigger={null} collapsible collapsed={collapsed}>
-                    <div className={styles.logo} /> 
+                    <div className={styles.logo} > 
+                        后台管理系统
+                    </div>
                     <SideNav/>               
                 </Sider>
                 <Layout>
