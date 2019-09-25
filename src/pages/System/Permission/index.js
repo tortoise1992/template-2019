@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Card,Button } from 'antd'
 import ChangePermission from './changePermission'
-import AddRole from './addOrEdit'
+import AddRole from './modal'
 export default class SystemMenu extends Component {
   state={
     visible:false

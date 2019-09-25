@@ -1,5 +1,5 @@
-import React, { Component} from 'react'
-import { Table,message} from 'antd'
+import React, { Component,Fragment } from 'react'
+import { Table,Button,Divider,Modal,message} from 'antd'
 export default class table extends Component {
     state={
         pagination:{
@@ -19,7 +19,7 @@ export default class table extends Component {
     
     getData=()=>{
         message.info('请求数据')
-        const res=require('@/data/system/basicinfo/history.json')
+        const res=require('@/data/system/user/list.json')
         if(res.success){
             let pagination={
                 ...this.state.pagination,
@@ -32,7 +32,17 @@ export default class table extends Component {
             })
         }
     }
-    
+    handleDelete=(record)=>{
+        Modal.confirm({
+            title:'系统提示',
+            content:'确定删除该条记录吗？',
+            okText:'确定',
+            cancelText:'取消',
+            onOk:()=>{
+                message.success('操作成功')
+            }
+        })
+    }
    
     handlePageChange=(pagination)=>{
         this.setState({
@@ -50,20 +60,36 @@ export default class table extends Component {
     render() {
         let columns=[
             {
-                title:'管理员姓名',
+                title:'账号',
+                dataIndex:'account'
+            },
+            {
+                title:'姓名',
                 dataIndex:'name'
             },
             {
-                title:'IP',
-                dataIndex:'ip'
+                title:'邮箱',
+                dataIndex:'email'
             },
             {
-                title:'登录时间',
-                dataIndex:'time'
+                title:'手机',
+                dataIndex:'phone'
             },
             {
-                title:'登录地址',
-                dataIndex:'address'
+                title:'角色',
+                dataIndex:'role'
+            },
+            {
+                title:'操作',
+                dataIndex:'action',
+                align:'center',
+                render:(text,record)=>{
+                    return (<Fragment>
+                        <Button type='primary' ghost size='small' onClick={()=>{this.props.handleEdit(record)}}>编辑</Button>
+                        <Divider type='vertical'/>                        
+                        <Button type='danger' ghost size='small' onClick={()=>{this.handleDelete(record)}}>删除</Button>
+                    </Fragment>)
+                }
             }
         ]
         return (

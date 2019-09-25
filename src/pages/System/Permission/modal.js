@@ -42,13 +42,13 @@ class AddOrEdit extends Component {
                             })(<Input/>)
                         }
                     </FormItem>
-                    <FormItem label='角色代号'>
+                    <FormItem label='角色编号'>
                         {
                             getFieldDecorator('roleCode',{
                                 initialValue:'',
                                 rules:[{
                                     required:true,
-                                    message:'角色代号不能为空'
+                                    message:'角色编号不能为空'
                                 }]
                             })(<Input/>)
                         }

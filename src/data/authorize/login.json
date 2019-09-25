@@ -46,6 +46,20 @@
                                 "children":[]
                             }
                         ]
+                    },
+                    {
+                        "_id": "22",
+                        "title": "用户管理",
+                        "url": "/system/user",
+                        "icon": "",
+                        "children": []
+                    },
+                    {
+                        "_id": "23",
+                        "title": "角色权限管理",
+                        "url": "/system/permission",
+                        "icon": "",
+                        "children": []
                     }
                 ]
             }
