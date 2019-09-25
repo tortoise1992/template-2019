@@ -14,59 +14,9 @@ export default class table extends Component {
         data:[]
     }
     componentDidMount() {
-        this.getColumns()
         this.getData()
     }
     
-    getColumns=()=>{
-        let columns=[
-            {
-                title:'客户类别',
-                dataIndex:'custom_type'
-            },
-            {
-                title:'客户等级',
-                dataIndex:'custom_level'
-            },
-            {
-                title:'客户编号',
-                dataIndex:'custom_no'
-            },
-            {
-                title:'客户名称',
-                dataIndex:'custom_name'
-            },
-            {
-                title:'联系人',
-                dataIndex:'contact'
-            },
-            {
-                title:'手机',
-                dataIndex:'phone'
-            },
-            {
-                title:'应收款余额',
-                dataIndex:'should'
-            },
-            {
-                title:'地址',
-                dataIndex:'address'
-            }
-        ]
-        columns.push({
-            title:'操作',
-            dataIndex:'action',
-            align:'center',
-            render:(text,record)=>{
-                return (<Fragment>
-                    <Button type='primary' ghost size='small' onClick={()=>{this.props.handleEdit(record)}}>编辑</Button>
-                    <Divider type='vertical'/>                        
-                    <Button type='danger' ghost size='small' onClick={()=>{this.handleDelete(record)}}>删除</Button>
-                </Fragment>)
-            }
-        })
-        this.props.transformColumns(columns)
-    }
     getData=()=>{
         message.info('请求数据')
         const res=require('@/data/resource/base/custom/list.json')
@@ -108,7 +58,52 @@ export default class table extends Component {
     }
     
     render() {
-        const {columns}=this.props
+        let columns=[
+            {
+                title:'客户类别',
+                dataIndex:'custom_type'
+            },
+            {
+                title:'客户等级',
+                dataIndex:'custom_level'
+            },
+            {
+                title:'客户编号',
+                dataIndex:'custom_no'
+            },
+            {
+                title:'客户名称',
+                dataIndex:'custom_name'
+            },
+            {
+                title:'联系人',
+                dataIndex:'contact'
+            },
+            {
+                title:'手机',
+                dataIndex:'phone'
+            },
+            {
+                title:'应收款余额',
+                dataIndex:'should'
+            },
+            {
+                title:'地址',
+                dataIndex:'address'
+            },
+            {
+                title:'操作',
+                dataIndex:'action',
+                align:'center',
+                render:(text,record)=>{
+                    return (<Fragment>
+                        <Button type='primary' ghost size='small' onClick={()=>{this.props.handleEdit(record)}}>编辑</Button>
+                        <Divider type='vertical'/>                        
+                        <Button type='danger' ghost size='small' onClick={()=>{this.handleDelete(record)}}>删除</Button>
+                    </Fragment>)
+                }
+            }
+        ]
         return (
             <Table
                 columns={columns}

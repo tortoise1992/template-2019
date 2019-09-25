@@ -12,8 +12,7 @@ export default class Index extends Component {
             name:'',
             username:'',
             status:''
-        },
-        columns:[]
+        }
     }
     
     handleAdd=()=>{
@@ -42,6 +41,9 @@ export default class Index extends Component {
             this.node.getData()
         })
     }
+    refresh=()=>{
+        this.node.getData()
+    }
     handleSearch=(values)=>{
         this.setState({
             filterValue:values
@@ -56,11 +58,7 @@ export default class Index extends Component {
             }
         })
     }
-    transformColumns=(columns)=>{
-        this.setState({
-            columns
-        })
-    }
+    
     render() {
         return (
             <Fragment>
@@ -75,13 +73,12 @@ export default class Index extends Component {
                     />
                     <Actions
                             handleAdd={this.handleAdd}
+                            refresh={this.refresh}
                     />
                     <ATable
                         handleEdit={this.handleEdit}
                         ref={node=>this.node=node}
                         filterValue={this.state.filterValue}
-                        transformColumns={this.transformColumns}
-                        columns={this.state.columns}
                     />
                     {
                         this.state.visible && <Amodal
