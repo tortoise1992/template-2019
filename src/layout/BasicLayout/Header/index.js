@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Icon,Modal,Dropdown,Avatar,Menu } from 'antd'
+import { Icon,Modal } from 'antd'
 import {withRouter} from 'react-router-dom'
 import styles from './index.module.less'
 class Index extends Component {
@@ -28,12 +28,7 @@ class Index extends Component {
         })
     }
     render() {
-        const menu = (
-            <Menu>
-              <Menu.Item key="1"><Icon type="edit" />修改密码</Menu.Item>
-              <Menu.Item key="2" onClick={this.handleLogout}><Icon type="poweroff" />退出登录</Menu.Item>
-            </Menu>
-        )
+        
         return (
             <div>
                 <Icon
@@ -42,8 +37,7 @@ class Index extends Component {
                     onClick={this.props.toggle}
                 />
 
-                <div className={styles.action}>
-                    {/* <Icon className={styles.logout}  type='logout' onClick={this.handleLogout} title='注销'/> */}
+                {/* <div className={styles.action}>
                     <Dropdown className={styles.userInfo} overlay={menu} trigger={['hover']} placement="bottomRight">
                         <span style={{ float: 'right', height: 64, display: 'block', cursor: 'pointer' }}>
                             <Avatar style={{ backgroundColor: '#f56a00', color: '#fff', marginRight: 10 }}>A</Avatar>
@@ -51,7 +45,7 @@ class Index extends Component {
                         <Icon type="caret-down" style={{ marginLeft: 10 }} />
                         </span>
                     </Dropdown>
-                </div>
+                </div> */}
             </div>
         )
     }
