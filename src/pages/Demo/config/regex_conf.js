@@ -1,0 +1,37 @@
+export default [
+    {
+        title:'网址',
+        use:false,
+        regex:/^(?:(?:https?|ftp):\/\/)?(?:[\da-z.-]+)\.(?:[a-z.]{2,6})(?:\/\w\.-]*)*\/?/
+    },
+    {
+        title:'手机号',
+        use:true,
+        regex:/^(?:(?:\+|00)86)?1\d{10}$/
+    },
+    {
+        title:'邮箱',
+        use:true,
+        regex:/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+    },
+    {
+        title:'数字',
+        use:true,
+        regex:/^\d{1,}$/
+    },
+    {
+        title:'汉字',
+        use:true,
+        regex:/^(?:[\u3400-\u4DB5\u4E00-\u9FEA\uFA0E\uFA0F\uFA11\uFA13\uFA14\uFA1F\uFA21\uFA23\uFA24\uFA27-\uFA29]|[\uD840-\uD868\uD86A-\uD86C\uD86F-\uD872\uD874-\uD879][\uDC00-\uDFFF]|\uD869[\uDC00-\uDED6\uDF00-\uDFFF]|\uD86D[\uDC00-\uDF34\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D\uDC20-\uDFFF]|\uD873[\uDC00-\uDEA1\uDEB0-\uDFFF]|\uD87A[\uDC00-\uDFE0])+$/
+    },
+    {
+        title:'身份证号',
+        use:true,
+        regex:/^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}(\d|X|x)$/
+    },
+    {
+        title:'自定义正则',
+        use:true,
+        regex:null
+    }
+]
