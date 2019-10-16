@@ -8,8 +8,6 @@ class SideNav extends Component {
         menu:[]
     }
     componentDidMount = () => {
-        console.log(111)
-
         if(localStorage.getItem('userInfo')){
             let menu=JSON.parse(localStorage.getItem('userInfo')).menu
             this.setState({

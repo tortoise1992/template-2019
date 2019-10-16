@@ -1,0 +1,35 @@
+export default [
+    {
+        type:'text',
+        title:'纯文本',
+        icon:''
+    },
+    {
+        type:'input',
+        title:'单行输入框'
+    },
+    {
+        type:'textarea',
+        title:'多行输入框'
+    },
+    {
+        type:'date',
+        title:'日期'
+    },
+    {
+        type:'select',
+        title:'下拉框'
+    },
+    {
+        type:'radio',
+        title:'单选框'
+    },
+    {
+        type:'checkbox',
+        title:'复选框'
+    },
+    {
+        type:'table',
+        title:'自定义表格'
+    }
+]

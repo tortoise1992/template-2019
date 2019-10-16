@@ -9,8 +9,10 @@ export default class Index extends Component {
         
         return (
             <Card title='表单设计器'>
-                <List/>
-                <Container/>
+                <div className='form-designer'>
+                    <List/>
+                    <Container/>
+                </div>                
             </Card>
         );
     }
