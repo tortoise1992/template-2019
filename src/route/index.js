@@ -5,7 +5,7 @@ import Login from '@/pages/Login'
 const Home = React.lazy(() => import('@/pages/Home'))
 // const UserManage= React.lazy(() => import('@/pages/System/User'))
 // const PermissionManage= React.lazy(() => import('@/pages/System/Permission'))
-
+const Demo =React.lazy(() => import('@/pages/Demo'))
 // 系统管理
 const ServerInfo=React.lazy(() => import('@/pages/System/BasicInfo/Server'))
 const SiteInfo=React.lazy(() => import('@/pages/System/BasicInfo/Site'))
@@ -28,7 +28,8 @@ class RouterPage extends Component {
                         render={props => (this.checkAuth() ? <BasicLayout>
                             <Suspense fallback={<div>Loading...</div>}>
                                 <Route exact path="/" render={() => <Redirect to="/home"/>}/>
-                                <Route path="/home" exact component={Home}/>                                
+                                <Route path="/home" exact component={Home}/> 
+                                <Route path="/demo" exact component={Demo}/>                               
                                 <Route path="/system/basicInfo/server" exact component={ServerInfo}/>
                                 <Route path="/system/basicInfo/site" exact component={SiteInfo}/>
                                 <Route path="/system/basicInfo/history" exact component={LoginInfo}/>
