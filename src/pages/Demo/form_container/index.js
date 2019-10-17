@@ -1,9 +1,29 @@
 import React, { Component } from 'react'
 import Sortable from 'react-sortablejs'
 import ListConfig from '../config/list_conf'
+import BaseText from '../form_base/BaseText'
+import propDict from '../config/component_prop'
 export default class Index extends Component {
     state={
         list:[]
+    }
+    getComponent=type=>{
+        switch(type){
+            case 'text':
+                return <BaseText/>;
+            default:
+                return null
+        }
+    }
+    handleSortChange=(order, sortable, evt)=>{
+        let sourceIndex=evt.oldIndex
+        if(evt.type === 'add'){
+            // 新增组件
+            let type=ListConfig[sourceIndex].type
+            this.setState({
+                list:[...this.state.list,propDict[type]]
+            })
+        }  
     }
     render() {
         return (
@@ -17,20 +37,18 @@ export default class Index extends Component {
                                         
                     }}
                     tag="div"
-                    onChange={(order, sortable, evt) => {
-                        let sourceIndex=evt.oldIndex
-                        if(evt.type === 'add'){
-                            // 新增组件
-                            console.log(ListConfig[sourceIndex])
-                        }
-                        this.setState({
-                            list:[111,112]
-                        })
-                    
-                    }}
+                    onChange={this.handleSortChange}
                 >
                     {
-                        this.state.list.map((item,index)=><span key={index}>{item}</span>)
+                        this.state.list.map((item,index)=>{
+                            return(
+                                <div className='component-item' key={index}>
+                                    {
+                                        this.getComponent(item.type)
+                                    }
+                                </div>
+                            )
+                        })
                     }
                 </Sortable>
             </div>
