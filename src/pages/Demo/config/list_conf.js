@@ -2,34 +2,41 @@ export default [
     {
         type:'text',
         title:'纯文本',
-        icon:''
+        icon:'font-size'
     },
     {
         type:'input',
-        title:'单行输入框'
+        title:'单行输入框',
+        icon:'edit'
     },
     {
         type:'textarea',
-        title:'多行输入框'
+        title:'多行输入框',
+        icon:'form'
     },
     {
         type:'date',
-        title:'日期'
+        title:'日期',
+        icon:'calendar'
     },
     {
         type:'select',
-        title:'下拉框'
+        title:'下拉框',
+        icon:'select'
     },
     {
         type:'radio',
-        title:'单选框'
+        title:'单选框',
+        icon:'tag'
     },
     {
         type:'checkbox',
-        title:'复选框'
+        title:'复选框',
+        icon:'tags'
     },
     {
         type:'table',
-        title:'自定义表格'
+        title:'自定义表格',
+        icon:'table'
     }
 ]
