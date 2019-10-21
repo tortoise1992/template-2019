@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import Sortable from 'react-sortablejs'
 import ListConfig from '../config/list_conf'
 import BaseText from '../form_base/BaseText'
+import BaseInput from '../form_base/BaseInput'
+import BaseTextarea from '../form_base/BaseTextarea'
+import BaseSelect from '../form_base/BaseSelect'
+import BaseRadio from '../form_base/BaseRadio'
+import BaseCheckbox from '../form_base/BaseCheckbox'
+import BaseDate from '../form_base/BaseDate'
+import BaseTable from '../form_base/BaseTable'
 import propDict from '../config/component_prop'
 export default class Index extends Component {
     state={
@@ -11,6 +18,20 @@ export default class Index extends Component {
         switch(type){
             case 'text':
                 return <BaseText/>;
+            case 'input':
+                return <BaseInput/>;
+            case 'textarea':
+                return <BaseTextarea/>;
+            case 'select':
+                return <BaseSelect/>;
+            case 'radio':
+                return <BaseRadio/>;
+            case 'checkbox':
+                return <BaseCheckbox/>;
+            case 'date':
+                return <BaseDate/>;
+            case 'table':
+                return <BaseTable/>;
             default:
                 return null
         }

@@ -1,6 +1,7 @@
 export default {
     "type":"text",
-    "id":"",
+    "id":`a${new Date().getTime()}-${Math.random()}`,
+    "actualValue":"",
     "common":{
         
     },

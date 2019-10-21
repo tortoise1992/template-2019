@@ -1,4 +1,7 @@
 export default {
+    "type":"textarea",
+    "id":`a${new Date().getTime()}-${Math.random()}`,
+    "actualValue":"",
     "common":{
         
     },

@@ -1,4 +1,7 @@
 export default {
+    "type":"radio",
+    "id":`a${new Date().getTime()}-${Math.random()}`,
+    "actualValue":"",
     "common":{
         
     },
