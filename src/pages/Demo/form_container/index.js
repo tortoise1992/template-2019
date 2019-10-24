@@ -10,15 +10,16 @@ import BaseCheckbox from '../form_base/BaseCheckbox'
 import BaseDate from '../form_base/BaseDate'
 import BaseTable from '../form_base/BaseTable'
 import propDict from '../config/component_prop'
-import update from 'immutability-helper'
+// import update from 'immutability-helper'
 export default class Index extends Component {
     state={
-        list:[]
+        list:[],
+        order:[]
     }
-    getComponent=type=>{
-        switch(type){
+    getComponent=item=>{
+        switch(item.type){
             case 'text':
-                return <BaseText/>;
+                return <BaseText item={item}/>;
             case 'input':
                 return <BaseInput/>;
             case 'textarea':
@@ -42,24 +43,33 @@ export default class Index extends Component {
     }
     handleSortChange=(order, sortable, evt)=>{
         let sourceIndex=evt.oldIndex,targetIndex=evt.newIndex
-        let tmpList=this.deepCopy(this.state.list)
-        // console.log(evt)
+        let tmpList=this.deepCopy(this.state.list)        
         if(evt.type === 'add'){
             // 新增组件
-            let type=ListConfig[sourceIndex].type            
-            // 插入到指定的位置
-            tmpList.splice(targetIndex,0,propDict[type])            
-        }else if(evt.type === 'update'){
-            // 移动的时候删除旧位置的组件插入新位置
-            let item=tmpList[sourceIndex]            
-            // 此处需要判断是往前面拖动还是往后面拖动
-            tmpList = update(tmpList, {
-                $splice: [[sourceIndex, 1], [targetIndex, 0, item]]
+            let type=ListConfig[sourceIndex].type    
+            propDict[type].id=`a${new Date().getTime()}-${Math.random()}`   
+            tmpList.splice(targetIndex,0,propDict[type])    
+            let order=tmpList.map(item=>item.id)
+            this.setState({
+                list:tmpList,
+                order
+            })        
+        }else if(evt.type === 'update'){            
+            this.setState({
+                order
+            },()=>{
+                // 根据order重新排序list
+                let realOrder=this.state.order
+                let realList=realOrder.map(item=>{
+                    let i=this.state.list.find(inner=>inner.id === item)
+                    return i
+                })
+                this.setState({
+                    list:realList
+                })
             })
         }
-        this.setState({
-            list:tmpList
-        })
+        
     }
     render() {
         return (
@@ -78,9 +88,9 @@ export default class Index extends Component {
                     {
                         this.state.list.map((item,index)=>{
                             return(
-                                <div className='component-item' key={index}>
+                                <div className='component-item' key={item.id} data-id={item.id}>
                                     {
-                                        this.getComponent(item.type)
+                                        this.getComponent(item)
                                     }
                                 </div>
                             )
