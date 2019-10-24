@@ -13,8 +13,7 @@ import propDict from '../config/component_prop'
 // import update from 'immutability-helper'
 export default class Index extends Component {
     state={
-        list:[],
-        order:[]
+        list:[]
     }
     getComponent=item=>{
         switch(item.type){
@@ -41,6 +40,12 @@ export default class Index extends Component {
     deepCopy=(data)=>{
         return JSON.parse(JSON.stringify(data))
     }
+    reorder  =  (list, startIndex, endIndex) => {
+        const result = Array.from(list);
+        const [removed] = result.splice(startIndex, 1);
+        result.splice(endIndex, 0, removed);      
+        return result;
+    };
     handleSortChange=(order, sortable, evt)=>{
         let sourceIndex=evt.oldIndex,targetIndex=evt.newIndex
         let tmpList=this.deepCopy(this.state.list)        
@@ -49,27 +54,20 @@ export default class Index extends Component {
             let type=ListConfig[sourceIndex].type    
             propDict[type].id=`a${new Date().getTime()}-${Math.random()}`   
             tmpList.splice(targetIndex,0,propDict[type])    
-            let order=tmpList.map(item=>item.id)
             this.setState({
-                list:tmpList,
-                order
+                list:tmpList
             })        
         }else if(evt.type === 'update'){            
-            this.setState({
-                order
-            },()=>{
-                // 根据order重新排序list
-                let realOrder=this.state.order
-                let realList=realOrder.map(item=>{
-                    let i=this.state.list.find(inner=>inner.id === item)
-                    return i
-                })
-                this.setState({
-                    list:realList
-                })
-            })
+            tmpList=this.reorder(tmpList,sourceIndex,targetIndex)
         }
-        
+        this.setState({
+            list:tmpList
+        })
+    }
+    shouldComponentUpdate(nextProps,nextState){
+        console.log(nextState,'nextState')
+        console.log(this.state,'state')
+        return true
     }
     render() {
         return (
@@ -83,7 +81,7 @@ export default class Index extends Component {
                                         
                     }}
                     tag="div"
-                    onChange={this.handleSortChange}
+                    // onChange={this.handleSortChange}
                 >
                     {
                         this.state.list.map((item,index)=>{
