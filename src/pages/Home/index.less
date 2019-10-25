@@ -4,7 +4,7 @@
     .form-list{
         width: 200px;
         flex: 0 0 200px;
-        .item{
+        .item,.clone{
             width: 90px;
             float: left;
             height: 80px;
@@ -15,14 +15,19 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            cursor: move;
+            cursor: move;            
             .icon{
                 font-size: 20px;
             }
             .text{
                 margin-top: 10px;
             }
-        }
+        }   
+        .clone{
+            &~.item{
+                transform: none !important;
+            }
+        }     
     }
     .form-props{
         width: 250px;
