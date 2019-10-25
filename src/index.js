@@ -2,17 +2,39 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import zhCN from 'antd/es/locale/zh_CN';
 import { ConfigProvider  } from 'antd';
-import {HashRouter as Router} from 'react-router-dom'
 import 'moment/locale/zh-cn';
-import './reset.less';
-import RouterPage from './route'
+import { Row,Col,Card } from 'antd'
 class App extends React.Component {    
     render(){
         return (
             <ConfigProvider  locale={zhCN}>
-                <Router>
-                    <RouterPage/>      
-                </Router>                               
+                <div style={{padding:15,backgroundColor:'#f4f4f4',width:'100vw',height:'100vh',overflow:'auto'}}>
+                    <Row gutter={15} style={{marginBottom:15}}>
+                        <Col span={12}>
+                            <Card title='表格'>
+
+                            </Card>
+                        </Col>
+                        <Col span={12}>
+                            <Card title='树'>
+
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row gutter={15}>
+                        <Col span={12}>
+                            <Card title='表格'>
+
+                            </Card>
+                        </Col>
+                        <Col span={12}>
+                            <Card title='树'>
+
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+                                           
             </ConfigProvider >
         );
     }
