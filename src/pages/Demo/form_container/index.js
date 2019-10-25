@@ -64,11 +64,7 @@ export default class Index extends Component {
             list:tmpList
         })
     }
-    shouldComponentUpdate(nextProps,nextState){
-        console.log(nextState,'nextState')
-        console.log(this.state,'state')
-        return true
-    }
+    
     render() {
         return (
             <div className='form-container'>
@@ -81,7 +77,7 @@ export default class Index extends Component {
                                         
                     }}
                     tag="div"
-                    // onChange={this.handleSortChange}
+                    onChange={this.handleSortChange}
                 >
                     {
                         this.state.list.map((item,index)=>{

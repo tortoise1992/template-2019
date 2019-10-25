@@ -1,21 +1,16 @@
-import React, { Component } from "react";
-import { DragDropContext} from "react-beautiful-dnd";
-import Left from './Left'
-import Right from './Right'
-import Middle from './Middle'
-import './index.less'
-class Designer extends Component {
-    render() {
-        return (
-            <DragDropContext onDragEnd={this.onDragEnd}>
-                <div className='form-designer'>
-                    <Left/>
-                    <Middle/>
-                    <Right/>
-                </div>
-            </DragDropContext>
-        );
-    }
+import React from 'react'
+import Example from './example'
+import { DndProvider } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+
+function App() {
+    return (
+        <div className="App">
+            <DndProvider backend={HTML5Backend}>
+                <Example />
+            </DndProvider>
+        </div>
+    )
 }
 
-export default Designer
+export default App

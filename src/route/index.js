@@ -14,6 +14,8 @@ const UserManagement=React.lazy(() => import('@/pages/System/User'))
 const PermissionManagement=React.lazy(() => import('@/pages/System/Permission'))
 const SiteManagement=React.lazy(() => import('@/pages/System/SiteSetting'))
 const MenuManagement=React.lazy(() => import('@/pages/System/Menu'))
+
+const Dnd=React.lazy(() => import('@/pages/Dnd'))
 class RouterPage extends Component {    
     checkAuth=()=>{
         return localStorage.getItem('userInfo')
@@ -29,7 +31,8 @@ class RouterPage extends Component {
                             <Suspense fallback={<div>Loading...</div>}>
                                 <Route exact path="/" render={() => <Redirect to="/home"/>}/>
                                 <Route path="/home" exact component={Home}/> 
-                                <Route path="/demo" exact component={Demo}/>                               
+                                <Route path="/demo" exact component={Demo}/>    
+                                <Route path="/dnd" exact component={Dnd}/>                              
                                 <Route path="/system/basicInfo/server" exact component={ServerInfo}/>
                                 <Route path="/system/basicInfo/site" exact component={SiteInfo}/>
                                 <Route path="/system/basicInfo/history" exact component={LoginInfo}/>

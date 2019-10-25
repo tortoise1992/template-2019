@@ -37,21 +37,13 @@ export default class Index extends Component {
                                                     {item.title}
                                                 </span>                
                                             </div>
-                                            {snapshot.isDragging && (
-                                                <div 
-                                                    className='clone' 
-                                                >                                                   
-                                                    <Icon className='icon' type={item.icon}/>
-                                                    <span className='text'>
-                                                        {item.title}
-                                                    </span>                
-                                                </div>
-                                            )}
+                                            
                                         </React.Fragment>
                                     )}
                                 </Draggable>
                             ))
                         }
+                        {provided.placeholder}
                     </div>   
                 )}
             </Droppable>         
