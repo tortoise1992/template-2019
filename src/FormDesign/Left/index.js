@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import DragItem from './item'
 export default class Index extends Component {
     state={
         list:[
@@ -22,11 +22,7 @@ export default class Index extends Component {
             <React.Fragment>
                 {
                     this.state.list.map((item,index)=>{
-                        return (
-                            <div key={index}>
-                                {item.title}
-                            </div>
-                        )
+                        return <DragItem item={item} key={index}/>
                     })
                 }
             </React.Fragment>
