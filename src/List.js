@@ -26,7 +26,7 @@ const List = ({cardList, changeCardList}) => {
         accept: ItemTypes.Card
     });
 
-    const moveCard = useCallback((dragIndex, hoverIndex) => {
+    const moveItem = useCallback((dragIndex, hoverIndex) => {
         /**
          * 1、如果此时拖拽的组件是 Box 组件，则 dragIndex 为 undefined，则此时修改，则此时修改 cardList 中的占位元素的位置即可
          * 2、如果此时拖拽的组件是 Card 组件，则 dragIndex 不为 undefined，此时替换 dragIndex 和 hoverIndex 位置的元素即可

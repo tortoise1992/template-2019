@@ -1,31 +1,30 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import DragItem from './item'
-export default class Index extends Component {
-    state={
-        list:[
+const Index=(props)=> {    
+    const [list,]=useState([{
+        type:'text',
+        title:'文本'
+    },{
+        type:'input',
+        title:'单行输入框'
+    },{
+        type:'textarea',
+        title:'多行输入框'
+    }])
+    return (
+        <React.Fragment>
             {
-                type:'tyep1',
-                title:'组件1'
-            },
-            {
-                type:'tyep2',
-                title:'组件2'
-            },
-            {
-                type:'tyep3',
-                title:'组件3'
+                list.map((item,index)=>{
+                    return <DragItem 
+                    changeList={props.changeList}
+                    compList={props.compList} 
+                    item={item} 
+                    key={index}/>
+                })
             }
-        ]
-    }
-    render() {
-        return (
-            <React.Fragment>
-                {
-                    this.state.list.map((item,index)=>{
-                        return <DragItem item={item} key={index}/>
-                    })
-                }
-            </React.Fragment>
-        )
-    }
+        </React.Fragment>
+    )
+    
 }
+
+export default Index
