@@ -1,0 +1,80 @@
+@import './config.less';
+*{
+    margin: 0;
+    padding: 0;
+}
+.design-wrapper{
+    width: 100%;
+    height: 100%;
+    .top{
+        height: 50px;
+        line-height: 50px;
+        background-color: @backgroundColor;
+        padding: 0 30px;
+        color: @specialColor;
+    }
+    .bottom{
+        height: calc(100% - 50px);
+        display: flex;
+        .left{
+            flex: 0 0 250px;
+            width: 250px;
+            height: 100%;
+            background-color: @backgroundColor;
+            color: @specialColor;
+        }
+        .middle{
+            flex: 1;
+            height: 100%;
+            background-color: #e0e0e0;
+            
+        }
+        .right{
+            flex: 0 0 250px;
+            width: 250px;
+            height: 100%;
+            background-color: @backgroundColor;
+            color: @specialColor;
+        }
+    }
+}
+
+
+
+.design-left{
+    .comp-list{
+        height: 60%;
+        box-sizing: border-box;
+        border-top: 1px solid @subColor;
+        overflow: auto;
+    }
+    .tree-view{
+        height: 40%;
+        box-sizing: border-box;
+        border-top: 1px solid @subColor;
+        overflow: auto;
+    }
+}
+
+.design-right{
+    box-sizing: border-box;
+    border-top: 1px solid @subColor;
+}
+
+.design-middle{
+    .actions{
+        background-color: #fff;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+        box-shadow: 0 2px 5px #e4e7ed;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .main{
+        height: calc(100% - 50px);
+        overflow: auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}
