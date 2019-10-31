@@ -7,7 +7,7 @@ import styles from './index.module.less'
 const { Header, Sider, Content } = Layout;
 class SiderDemo extends Component {
     state = {
-        collapsed: false,
+        collapsed: false
     };
 
     toggle = () => {
