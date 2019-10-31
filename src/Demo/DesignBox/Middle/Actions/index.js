@@ -10,13 +10,13 @@ export default class Actions extends Component {
                 </Radio.Group>
 
                 <div style={{float:'right'}}>
-                    <Button type='primary'>
+                    <Button icon='sync' type='primary' style={{marginRight:10}}>
                         重置
                     </Button>
-                    <Button type='primary'>
+                    <Button icon='save' type='primary' style={{marginRight:10}}>
                         保存
                     </Button>
-                    <Button type='primary'>
+                    <Button icon='table' type='primary'>
                         JSON
                     </Button>
                 </div>
