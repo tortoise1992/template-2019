@@ -4,7 +4,7 @@ export default class Actions extends Component {
     render() {
         return (
             <div className='actions'>
-                <Radio.Group>
+                <Radio.Group value={'current'}>
                     <Radio.Button value="current">视图</Radio.Button>
                     <Radio.Button value="preview">预览</Radio.Button>
                 </Radio.Group>

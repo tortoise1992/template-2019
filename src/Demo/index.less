@@ -49,6 +49,32 @@
         overflow: auto;
         padding: 10px;
         box-sizing: border-box;
+        .title{
+            font-size: 16px;
+            color: @subColor;
+            padding: 10px 0;
+        }
+        .content{
+            .item-wrapper{
+                display: inline-block;
+                font-size: 12px;
+                height: 30px;
+                line-height: 30px;
+                width: 100%;
+                margin-bottom: 10px;
+                .item{
+                    padding-left: 10px;
+                    background-color: #33383E;
+                    border: 1px dashed #33383E;
+                    cursor: move;
+                    box-sizing: border-box;
+                    &:hover{
+                        border: 1px dashed #307AFF;
+                    }
+                }
+            }
+            padding: 0 0 10px 0;
+        }
     }
     .tree-view{
         height: 40%;
@@ -82,5 +108,9 @@
         overflow: auto;
         padding: 10px;
         box-sizing: border-box;
+        .smooth-dnd-container{
+            min-height: 100%;
+            width: 100%;
+        }
     }
 }

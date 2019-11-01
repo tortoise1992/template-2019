@@ -1,17 +1,18 @@
 let dict={
-    "text":{
+    "col":{
         "type":"text",
-        "title":"拖进来的纯文本组件",
+        "title":"拖进来的行列组件",
         "data":"1234"
     },
-    "input":{
+    "layout":{
         "type":"input",
-        "title":"拖进来的单行输入框组件",
+        "title":"拖进来的布局组件",
         "data":"1234"
     }
 }
 
 export const applyDrag = (arr, dragResult) => {
+    console.log(dragResult)
     const { removedIndex, addedIndex, payload } = dragResult;
     if (removedIndex === null && addedIndex === null) return arr;
 
