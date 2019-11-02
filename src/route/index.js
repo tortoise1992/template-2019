@@ -3,9 +3,6 @@ import {Switch,Route,Redirect} from 'react-router-dom'
 import BasicLayout from '@/layout/BasicLayout'
 import Login from '@/pages/Login'
 const Home = React.lazy(() => import('@/pages/Home'))
-// const UserManage= React.lazy(() => import('@/pages/System/User'))
-// const PermissionManage= React.lazy(() => import('@/pages/System/Permission'))
-
 // 系统管理
 const ServerInfo=React.lazy(() => import('@/pages/System/BasicInfo/Server'))
 const SiteInfo=React.lazy(() => import('@/pages/System/BasicInfo/Site'))
@@ -14,6 +11,7 @@ const UserManagement=React.lazy(() => import('@/pages/System/User'))
 const PermissionManagement=React.lazy(() => import('@/pages/System/Permission'))
 const SiteManagement=React.lazy(() => import('@/pages/System/SiteSetting'))
 const MenuManagement=React.lazy(() => import('@/pages/System/Menu'))
+
 class RouterPage extends Component {    
     checkAuth=()=>{
         return localStorage.getItem('userInfo')
