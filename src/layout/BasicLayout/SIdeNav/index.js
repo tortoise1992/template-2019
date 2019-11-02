@@ -6,6 +6,7 @@ const SubMenu=Menu.SubMenu
 class SideNav extends Component {
     state={
         menu:[]
+        
     }
     componentDidMount = () => {
         if(localStorage.getItem('userInfo')){

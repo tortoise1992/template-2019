@@ -47,6 +47,8 @@ export default class Index extends Component {
         return result;
     };
     handleSortChange=(order, sortable, evt)=>{
+        console.log(sortable)
+        console.log(evt)
         let sourceIndex=evt.oldIndex,targetIndex=evt.newIndex
         let tmpList=this.deepCopy(this.state.list)        
         if(evt.type === 'add'){

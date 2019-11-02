@@ -9,6 +9,7 @@ class SiderDemo extends Component {
     state = {
         collapsed: false
     };
+    
 
     toggle = () => {
         this.setState({
