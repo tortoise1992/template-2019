@@ -4,6 +4,8 @@ import BasicLayout from '@/layout/BasicLayout'
 import Login from '@/pages/Login'
 
 const Home = React.lazy(() => import('@/pages/Home'))
+// 资料管理
+const ResourceBasicCustomer = React.lazy(() => import('@/pages/Resource/Basic/Customer'))
 class RouterPage extends Component {    
     checkAuth=()=>{
         return localStorage.getItem('userInfo')
@@ -18,6 +20,8 @@ class RouterPage extends Component {
                             <Suspense fallback={<div>Loading...</div>}>
                                 <Route exact path="/" render={() => <Redirect to="/home"/>}/>
                                 <Route path="/home" exact component={Home}/>
+                                {/* 资料管理 */}
+                                <Route path="/resource/basic/customer" exact component={ResourceBasicCustomer}/>
                             </Suspense>
                         </BasicLayout> : <Route render={() => <Redirect to="/login"/>}/>)}
                     />

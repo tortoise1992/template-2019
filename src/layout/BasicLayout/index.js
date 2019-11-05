@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Layout } from 'antd';
-import SideNav from './SideNav'
+import Nav from './Nav'
 import PageHeader from './Header'
 import PageFooter from './Footer'
 import styles from './index.module.less'
@@ -24,7 +24,7 @@ class SiderDemo extends Component {
                     <div className={styles.logo} > 
                         {/* 后台管理系统 */}
                     </div>
-                    <SideNav/>               
+                    <Nav/>               
                 </Sider>
                 <Layout>
                     <Header
