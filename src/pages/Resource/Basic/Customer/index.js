@@ -6,7 +6,6 @@ export default class Customer extends Component {
     render() {
         return (
             <div>
-                111
                 <Filter/>
                 <Function/>
                 <MTable/>
