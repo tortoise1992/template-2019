@@ -1,0 +1,24 @@
+{
+    "success":true,
+    "msg":"请求成功",
+    "code":"000000",
+    "obj":{
+        "page":1,
+        "pageSize":10,
+        "total":1,
+        "rows":[
+            {
+                "type":"湖北省客户",
+                "level":"零售价",
+                "no":"KH001",
+                "name":"韩梅梅",
+                "contact":"韩梅梅",
+                "phone":"13045156566",
+                "im":"545787",
+                "money":"23000",
+                "address":"湖南省长沙市",
+                "status":"正常"
+            }
+        ]
+    }    
+}
