@@ -3,7 +3,6 @@ import { Table,message  } from 'antd'
 export default class MTable extends Component {
     state={
         data:[],
-        columns:[],
         pagination:{
             current: 1,
             pageSize: 10,
@@ -12,45 +11,10 @@ export default class MTable extends Component {
             showQuickJumper:true
         }
     }
-    componentDidMount() {
-        let columns=[{
-            dataIndex:'type',
-            title:'客户类别'
-        },{
-            dataIndex:'level',
-            title:'客户等级'
-        },
-        {
-            dataIndex:'no',
-            title:'客户编号'
-        },
-        {
-            dataIndex:'name',
-            title:'客户名称'
-        },{
-            dataIndex:'contact',
-            title:'联系人'
-        },{
-            dataIndex:'phone',
-            title:'手机号'
-        },{
-            dataIndex:'im',
-            title:'QQ/微信号'
-        },{
-            dataIndex:'money',
-            title:'应收款余额'
-        },{
-            dataIndex:'address',
-            title:'地址'
-        },{
-            dataIndex:'status',
-            title:'状态'
-        }]
-        this.setState({
-            columns
-        },()=>{
-            this.getData()
-        })
+    componentDidMount() {        
+        this.getData()
+        // 传递当前组件的示例到父级供兄弟组件调用
+        this.props.transformIns(this)
     }
     getData=()=>{
         let params={...this.props.filterValue,...this.state.pagination}
@@ -88,7 +52,8 @@ export default class MTable extends Component {
         }
     }
     render() {
-        const {data,columns,pagination}=this.state
+        const {data,pagination}=this.state
+        const {columns}=this.props
         const rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
                 console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);

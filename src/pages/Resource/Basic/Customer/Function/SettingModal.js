@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class MModal extends Component {
+export default class SettingModal extends Component {
     render() {
         return (
             <div>
