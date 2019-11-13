@@ -54,7 +54,7 @@ export default class Function extends Component {
             <Fragment>
                 <div className={styles.box}>
                     <div className={styles.left}>
-                        <Button type='primary' icon='setting'>列表设置</Button>
+                        <Button onClick={()=>{this.handleOpen('setting')}} type='primary' icon='setting'>列表设置</Button>
                     </div>
                     <div className={styles.right}>
                         <Button onClick={()=>{this.handleOpen('add')}} icon='plus' style={{marginRight:10}}>新增</Button>
