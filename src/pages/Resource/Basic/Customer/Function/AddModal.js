@@ -37,7 +37,7 @@ class AddModal extends Component {
         return (
             <Modal
                 visible={visible}
-                title='新增'
+                title='新增客户'
                 onCancel={()=>{this.props.handleCancel('add')}}
                 onOk={this.handleOK}
             >
