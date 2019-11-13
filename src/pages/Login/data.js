@@ -1,4 +1,4 @@
-{
+export default {
     "success":true,
     "msg":"请求成功",
     "code":"000000",
