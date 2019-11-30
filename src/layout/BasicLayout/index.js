@@ -4,6 +4,7 @@ import Nav from './Nav'
 import PageHeader from './Header'
 import PageFooter from './Footer'
 import styles from './index.module.less'
+// import Logo from './logo.png'
 const { Header, Sider, Content } = Layout;
 class SiderDemo extends Component {
     state = {
@@ -21,13 +22,13 @@ class SiderDemo extends Component {
         return (
             <Layout className={styles.container}>
                 <Sider className={styles.sider} trigger={null} collapsible collapsed={collapsed}>
-                    <div style={{height:64,color:'#fff'}}> 
-                        {/* <img/> */}
-                        <span>
-                            后台管理系统
-                        </span>
-                        {/*  */}
+                    <div style={{height:64}}>
+
                     </div>
+                        {/* <img src={Logo} alt='' />
+                        <span color='#fff'>
+                            后台管理系统
+                        </span> */}
                     <Nav/>               
                 </Sider>
                 <Layout>

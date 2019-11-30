@@ -14,31 +14,16 @@ export default {
             },
             {
                 "_id": "2",
-                "title":"资料管理",
-                "url": "/resource",
+                "title":"商品目录",
+                "url": "/shangpin",
                 "icon": "setting",
                 "children": [
                     {
                         "_id": "21",
-                        "title": "基础资料",
-                        "url": "/resource/basic",
+                        "title": "商品分类",
+                        "url": "/shangpin/fenlei",
                         "icon": "",
-                        "children": [
-                            {
-                                "_id": "211",
-                                "title": "客户管理",
-                                "url": "/resource/basic/customer",
-                                "icon": "",
-                                "children":[]
-                            }
-                        ]
-                    },
-                    {
-                        "_id": "22",
-                        "title": "辅助资料",
-                        "url": "/resource/sub",
-                        "icon": "",
-                        "children": []
+                        
                     }
                 ]
             }

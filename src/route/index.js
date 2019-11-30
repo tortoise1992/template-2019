@@ -4,7 +4,8 @@ import BasicLayout from '@/layout/BasicLayout'
 import Login from '@/pages/Login'
 
 const Home = React.lazy(() => import('@/pages/Home'))
-// 资料管理
+// 商品目录
+const ShangPinFenLei=React.lazy(() => import('@/pages/ShangPinMuLu/ShangPinFenLei'))
 class RouterPage extends Component {    
     checkAuth=()=>{
         return localStorage.getItem('userInfo')
@@ -20,6 +21,7 @@ class RouterPage extends Component {
                                 <Route exact path="/" render={() => <Redirect to="/home"/>}/>
                                 <Route path="/home" exact component={Home}/>
                                 
+                                <Route path="/shangpin/fenlei" exact component={ShangPinFenLei}/>
                             </Suspense>
                         </BasicLayout> : <Route render={() => <Redirect to="/login"/>}/>)}
                     />
