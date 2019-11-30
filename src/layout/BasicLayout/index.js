@@ -22,8 +22,12 @@ class SiderDemo extends Component {
         return (
             <Layout className={styles.container}>
                 <Sider className={styles.sider} trigger={null} collapsible collapsed={collapsed}>
-                    <div style={{height:64}}>
-
+                    <div style={{height:64,textAlign:'center'}}>
+                        {
+                            !collapsed && <span style={{color:'#fff',lineHeight:'64px'}}>
+                                后台管理系统
+                            </span>
+                        }
                     </div>
                         {/* <img src={Logo} alt='' />
                         <span color='#fff'>
