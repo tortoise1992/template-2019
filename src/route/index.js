@@ -6,6 +6,11 @@ import Login from '@/pages/Login'
 const Home = React.lazy(() => import('@/pages/Home'))
 // 商品目录
 const ShangPinFenLei=React.lazy(() => import('@/pages/ShangPinMuLu/ShangPinFenLei'))
+
+//凭证管理
+const PingZhengXinZeng=React.lazy(() => import('@/pages/PingZheng/XinZeng'))
+const PingZhengChaKan=React.lazy(() => import('@/pages/PingZheng/ChaKan'))
+const PingZhengHuiZong=React.lazy(() => import('@/pages/PingZheng/HuiZong'))
 class RouterPage extends Component {    
     checkAuth=()=>{
         return localStorage.getItem('userInfo')
@@ -22,6 +27,9 @@ class RouterPage extends Component {
                                 <Route path="/home" exact component={Home}/>
                                 
                                 <Route path="/shangpin/fenlei" exact component={ShangPinFenLei}/>
+                                <Route path="/pingzheng/xinzeng" exact component={PingZhengXinZeng}/>
+                                <Route path="/pingzheng/chakan" exact component={PingZhengChaKan}/>
+                                <Route path="/pingzheng/huizong" exact component={PingZhengHuiZong}/>
                             </Suspense>
                         </BasicLayout> : <Route render={() => <Redirect to="/login"/>}/>)}
                     />

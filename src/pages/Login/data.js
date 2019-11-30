@@ -26,7 +26,36 @@ export default {
                         
                     }
                 ]
-            }
+            },
+            {
+                "_id": "3",
+                "title":"凭证管理",
+                "url": "/pingzheng",
+                "icon": "setting",
+                "children": [
+                    {
+                        "_id": "31",
+                        "title": "新增凭证",
+                        "url": "/pingzheng/xinzeng",
+                        "icon": "",
+                        
+                    },
+                    {
+                        "_id": "32",
+                        "title": "查看凭证",
+                        "url": "/pingzheng/chakan",
+                        "icon": "",
+                        
+                    },
+                    {
+                        "_id": "33",
+                        "title": "凭证汇总表",
+                        "url": "/pingzheng/huizong",
+                        "icon": "",
+                        
+                    }
+                ]
+            },
         ]
     }
 }
