@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class ChaKan extends Component {
+export default class XiTongJianCe extends Component {
     render() {
         return (
             <div>
