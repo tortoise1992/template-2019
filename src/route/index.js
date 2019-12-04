@@ -7,6 +7,7 @@ const Home = React.lazy(() => import('@/pages/Home'))
 
 const XiTongXinXi = React.lazy(() => import('@/pages/XiTong/XiTongXinXi'))
 const XiTongJianCe=React.lazy(() => import('@/pages/XiTong/XiTongJianCe'))
+const ZuZhiJiGou=React.lazy(() => import('@/pages/XiTong/ZuZhiJiGou'))
 class RouterPage extends Component {    
     checkAuth=()=>{
         return localStorage.getItem('userInfo')
@@ -24,6 +25,7 @@ class RouterPage extends Component {
                                 
                                 <Route path="/xitong/xinxi" exact component={XiTongXinXi}/>
                                 <Route path="/xitong/xitongjiance" exact component={XiTongJianCe}/>
+                                <Route path="/xitong/zuzhijigou" exact component={ZuZhiJiGou}/>
                             </Suspense>
                         </BasicLayout> : <Route render={() => <Redirect to="/login"/>}/>)}
                     />

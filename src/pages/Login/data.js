@@ -29,6 +29,12 @@ export default {
                         "title": "系统检测",
                         "url": "/xitong/xitongjiance",
                         "icon": ""
+                    },
+                    {
+                        "_id": "23",
+                        "title": "组织机构",
+                        "url": "/xitong/zuzhijigou",
+                        "icon": ""
                     }
                 ]
             },
