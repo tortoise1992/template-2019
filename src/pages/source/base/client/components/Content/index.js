@@ -2,6 +2,8 @@ import React, { Component} from 'react'
 import { Card,Button,Table,Icon,Divider,Modal,message } from 'antd'
 import { columns } from './config'
 import {ExportTableData} from '@/util/index'
+import AddOrEdit from './AddOrEdit'
+import ImportFile from './ImportFile'
 export default class Content extends Component {
 	state={
 		dataSource:[],
@@ -13,7 +15,9 @@ export default class Content extends Component {
 			showTotal:(total) => `共${total}条`
 		},
 		selectKeys:[],
-		editData:null
+		editData:null,
+		addVisible:false,
+		uploadVisible:true
 	}
 	handleDelete=(param)=>{
 		if(param instanceof Array){
@@ -48,13 +52,27 @@ export default class Content extends Component {
 		ExportTableData(this.state.columns,this.state.dataSource,'客户列表')
 	}
 	showModal=(type)=>{
-
+		this.setState({
+			[`${type}Visible`]:true
+		})
 	}
 	cancelModal=(type)=>{
-		
+		this.setState({
+			[`${type}Visible`]:false,
+			editData:null
+		},()=>{
+			this.getTableData()
+		})
 	}
-	okModal=(type)=>{
-		
+	handleAdd=(type)=>{
+		this.showModal(type)
+	}
+	handleEdit=(record)=>{
+		this.setState({
+			editData:record
+		},()=>{
+			this.showModal('add')
+		})
 	}
 	getTableData=()=>{
 		let res={
@@ -117,14 +135,14 @@ export default class Content extends Component {
 		})
 	}
 	render() {
-		const {dataSource,columns,pagination}=this.state
+		const {dataSource,columns,pagination,addVisible,uploadVisible,editData}=this.state
 		let actColumns=[
 			...columns,
 			{
 				title:'操作',
 				render:(text,record)=>{
 					return <React.Fragment>
-						<Icon type='edit' style={{cursor:'pointer'}}/>
+						<Icon type='edit' style={{cursor:'pointer'}} onClick={()=>{this.handleEdit(record)}}/>
 						<Divider type='vertical'/>
 						<Icon type='delete' style={{cursor:'pointer'}} onClick={()=>{this.handleDelete(record.id)}}/>
 					</React.Fragment>
@@ -138,7 +156,7 @@ export default class Content extends Component {
 				</React.Fragment>}
 				extra={
 					<React.Fragment>
-						<Button icon='plus'>
+						<Button icon='plus' onClick={()=>{this.handleAdd('add')}}>
 							新增
 						</Button>
 						<Button icon='sync' style={{marginLeft:10}} onClick={()=>{this.getTableData()}}>
@@ -165,6 +183,12 @@ export default class Content extends Component {
 				>
 
 				</Table>
+				{
+					addVisible && <AddOrEdit editData={editData} visible={addVisible} cancelModal={this.cancelModal}/>
+				}
+				{
+					uploadVisible && <ImportFile visible={uploadVisible} cancelModal={this.cancelModal}/>
+				}
 			</Card>
 		)
 	}
