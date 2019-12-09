@@ -30,6 +30,6 @@ export default {
   ],
   // 配置antd的主题色
   "theme": {
-    "@primary-color": "rgb(223,4,81)"
+    // "@primary-color": "rgb(223,4,81)"
   }
 }
