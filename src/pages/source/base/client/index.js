@@ -8,15 +8,23 @@ import { Row } from 'antd'
 import Filter from './components/Filter'
 import Content from './components/Content'
 export default class Client extends Component {
-
+	state={
+		filterValue:null
+	}
+	changeFilter=(value)=>{
+		this.setState({
+			filterValue:value
+		})
+	}
 	render() {
+		let {filterValue}=this.state
 		return (
 			<Fragment>
 				<Row>
-					<Filter/>
+					<Filter changeFilter={this.changeFilter}/>
 				</Row>
 				<Row>
-					<Content/>
+					<Content filterValue={filterValue}/>
 				</Row>				
 			</Fragment>
 		)

@@ -22,6 +22,7 @@ class Filter extends Component {
 	handleSearch=()=>{
 		this.props.form.validateFields((err,values)=>{
 			// 拿到填的值
+			this.props.changeFilter(values)
 		})
 	}
 	render() {

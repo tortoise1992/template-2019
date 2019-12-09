@@ -17,7 +17,7 @@ export default class Content extends Component {
 		selectKeys:[],
 		editData:null,
 		addVisible:false,
-		uploadVisible:true
+		uploadVisible:false
 	}
 	handleDelete=(param)=>{
 		if(param instanceof Array){
@@ -29,6 +29,7 @@ export default class Content extends Component {
 					cancelText:'取消',
 					onOk:()=>{
 						message.info('删除成功')
+						
 					}
 				})
 			}else{
@@ -74,7 +75,12 @@ export default class Content extends Component {
 			this.showModal('add')
 		})
 	}
+	handleImport=()=>{
+		this.showModal('upload')
+	}
 	getTableData=()=>{
+		console.log(this.props.filterValue) //筛选条件参数
+		console.log(this.state.pagination) //分页参数
 		let res={
 			success:true,
 			obj:{
@@ -127,6 +133,12 @@ export default class Content extends Component {
 	componentDidMount() {
 		this.getTableData()
 	}
+	componentDidUpdate(prevProps, prevState) {
+		if(JSON.stringify(prevProps) !== JSON.stringify(this.props)){
+			this.getTableData()
+		}
+	}
+	
 	handleTableChange=(pagination)=>{
 		this.setState({
 			pagination
@@ -149,6 +161,13 @@ export default class Content extends Component {
 				}
 			}
 		]
+		const rowSelection = {
+			onChange: (selectedRowKeys, selectedRows) => {
+				this.setState({
+					selectKeys:selectedRowKeys
+				})
+			}
+		}
 		return (
 			<Card 
 				title={<React.Fragment>
@@ -165,7 +184,7 @@ export default class Content extends Component {
 						<Button icon='export' style={{marginLeft:10}} onClick={this.handleExport}>
 							导出
 						</Button>
-						<Button icon='import' style={{marginLeft:10}}>
+						<Button icon='import' style={{marginLeft:10}} onClick={this.handleImport}>
 							导入
 						</Button>
 						<Button icon='delete' style={{marginLeft:10}} onClick={()=>{this.handleDelete(this.state.selectKeys)}}>
@@ -180,6 +199,7 @@ export default class Content extends Component {
 					rowKey={record=>record.id}
 					pagination={pagination}
 					onChange={this.handleTableChange}
+					rowSelection={rowSelection}
 				>
 
 				</Table>
