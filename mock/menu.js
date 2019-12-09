@@ -1,0 +1,37 @@
+export default {
+    'GET /api/getMenu':{
+        success:true,
+        msg:'请求成功',
+        obj:[
+            {
+                _id:'1',
+                title:'首页',
+                url:'/home',
+                icon:'',
+                children:[]
+            },
+            {
+                _id:'2',
+                title:'系统管理',
+                url:'/system',
+                icon:'',
+                children:[
+                    {
+                        _id:'20',
+                        title:'用户管理',
+                        url:'/system/user',
+                        icon:'',
+                        children:[]
+                    },
+                    {
+                        _id:'21',
+                        title:'权限管理',
+                        url:'/system/permission',
+                        icon:'',
+                        children:[]
+                    }
+                ]
+            }
+        ]
+    }
+}

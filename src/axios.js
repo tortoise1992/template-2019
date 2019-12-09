@@ -2,27 +2,11 @@ import axios from 'axios';
 import Qs from "qs";
 import { message } from 'antd';
 
-let hideLoadingDom = () => {
-    let loadingDom = window.document.getElementById("loadingDom");
-    if(loadingDom){
-        loadingDom.style.display = "none";
-    }
-}
-
-let showloadingDom = () => {
-    let loadingDom = window.document.getElementById("loadingDom");
-    if(loadingDom){
-        loadingDom.style.display = "flex";
-    }
-}
-
 //请求 头contentTpye类型
 const contentTpyeArrs = [
-    "application/json",
     "application/x-www-form-urlencoded;charset=UTF-8",
-    "multipart/form-data"
+	"application/json"	
 ]
-
 //基本设置
 let options = {
     baseURL: "",
@@ -49,9 +33,10 @@ ajax.interceptors.request.use((config) => {  //在请求发出之前进行一些
     };
     if (reqNumer > 0) {
         // 显示加载动画
-        showloadingDom();
+        
     }
-    
+    // let token =getLocal('token') || ''
+    // config.headers.token=token
     return config;
 },(err) => {
     //Do something with request error
@@ -65,32 +50,46 @@ ajax.interceptors.response.use((response) => {  // 接受请求后reqNumer--，�
     if (reqNumer <= 0) {
         reqNumer = 0;
         // 隐藏加载动画
-        hideLoadingDom();
+        
     } else {
-        showloadingDom();
+        
     }
     //统一处理返回数据
     const useResponse = response.data;
     if (useResponse.success) {
         return { "success": true, "obj": useResponse["obj"] };
     } else {
-        if (useResponse.errorCode === 5) {//未登录过期，重定向
-            window.localStorage.clear();
-            window.location.href = `http://${window.location.host}`;
-            hideLoadingDom();
+        if (useResponse.errorCode === 403) {
             return { "success": false };
+           
         } else {
-            return { "success": false, "obj": useResponse["msg"] };
+        	if (useResponse["msg"]) {
+        		message.error(useResponse["msg"])
+        	}
+            return { "success": false, "obj": useResponse["msg"] || useResponse["message"] };
         }
     }
 }, function (error) {
     // 对响应错误做点什么
     if (error && error.response) {
-        message.warn(error.response.statusText);
-        // break;
+        switch (error.response.status) {
+            case 400: message.warn('请求错误') ; break;
+            case 401: message.warn('未授权，请重新登录'); break;
+            case 403: message.warn('拒绝访问，请重新登录');                
+            break;
+            case 404: message.warn('请求出错'); break;
+            case 408: message.warn('请求超时'); break;
+            case 500: message.warn('服务器错误'); break;
+            case 501: message.warn('服务未实现'); break;
+            case 502: message.warn('网络错误'); break;
+            case 503: message.warn('服务不可用'); break;
+            case 504: message.warn('网络超时(504)'); break;
+            case 505: message.warn('HTTP版本不受支持'); break;
+            default: message.warn(`连接出错!`);
+        }
         reqNumer--;
         if (reqNumer <= 0) {
-            hideLoadingDom();
+            
         }
         return Promise.reject(error);
 
@@ -98,7 +97,7 @@ ajax.interceptors.response.use((response) => {  // 接受请求后reqNumer--，�
         message.warn("请求超时");
         reqNumer--;
         if (reqNumer <= 0) {
-            hideLoadingDom();
+           
         }
         return Promise.reject(error);
     }
@@ -111,8 +110,7 @@ const getAction = function (url, data={}, isShowloading) {
 		showloading = false // 不显示loading
 	} else {
 		showloading = true // 显示
-	}
-
+	}    
     return ajax.get(url, {
         params: data
     });
@@ -125,17 +123,15 @@ const postAction = function (url, data={}, isShowloading, contentTpyeIndex=0) {
 	} else {
 		showloading = true // 显示
 	}
-	// 判断当前请求类型，确定向后端传递数据的方式,前后端沟通后按约定改动
-    let _contentTpye = contentTpyeArrs[contentTpyeIndex] || defaultContentType;
-    let _data;
 	
-	if (_contentTpye === contentTpyeArrs[1]) {
-        _data = Qs.stringify(data)
-	} else if (_contentTpye === contentTpyeArrs[0]){
-        _data = JSON.stringify(data)
-	}else if (_contentTpye === contentTpyeArrs[2]){//增加上传文件模式
-        _data = data
-    }
+	// 判断当前请求类型，确定向后端传递数据的方式,前后端沟通后按约定改动
+    let _contentTpye = contentTpyeArrs[contentTpyeIndex] || defaultContentType;    
+    let _data
+	if (_contentTpye === contentTpyeArrs[0]) {
+		_data = Qs.stringify(data)
+	} else if (_contentTpye === contentTpyeArrs[1]){
+		_data = JSON.stringify(data)    }
+    
     return ajax.post(url, _data, {
         headers: {
             'Content-Type': _contentTpye

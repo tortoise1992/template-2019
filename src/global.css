@@ -1,0 +1,12 @@
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+/* 给row设置统一的下边距 */
+.ant-row{
+  margin-bottom: 20px !important;
+}
