@@ -41,11 +41,11 @@ class Filter extends Component {
 							</Select>)
 						}
 					</FormItem>
-					<FormItem label='客户姓名'>
+					<FormItem label='客户名称'>
 						{
 							getFieldDecorator('name', {
 								initialValue:''
-							})(<Input placeholder='请输入客户姓名'></Input>)
+							})(<Input placeholder='请输入客户名称'></Input>)
 						}
 					</FormItem>
 					<FormItem>

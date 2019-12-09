@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import { Card,Button,Table,Icon,Divider,Modal,message } from 'antd'
 import { columns } from './config'
+import {ExportTableData} from '@/util/index'
 export default class Content extends Component {
 	state={
 		dataSource:[],
@@ -42,6 +43,9 @@ export default class Content extends Component {
 			})
 		}
 		
+	}
+	handleExport=()=>{
+		ExportTableData(this.state.columns,this.state.dataSource,'客户列表')
 	}
 	showModal=(type)=>{
 
@@ -140,7 +144,7 @@ export default class Content extends Component {
 						<Button icon='sync' style={{marginLeft:10}} onClick={()=>{this.getTableData()}}>
 							刷新
 						</Button>
-						<Button icon='export' style={{marginLeft:10}}>
+						<Button icon='export' style={{marginLeft:10}} onClick={this.handleExport}>
 							导出
 						</Button>
 						<Button icon='import' style={{marginLeft:10}}>
