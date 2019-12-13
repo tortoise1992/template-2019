@@ -72,8 +72,6 @@ export default class Content extends Component {
 	}
 	
 	getTableData=()=>{
-		console.log(this.props.filterValue) //筛选条件参数
-		console.log(this.state.pagination) //分页参数
 		let res={
 			success:true,
 			obj:{
@@ -83,12 +81,8 @@ export default class Content extends Component {
 				rows:[
 					{
 						id:'31318398',
-						field1:'166',
-						field2:'湖南科技',
-						field3:'100000',
-						field4:'80000',
-						field5:'2019-10-20',
-						field6:'普通账户',						
+						field1:'阿晖',
+						field2:'2131441411'											
 					}
 				]
 			}
@@ -136,22 +130,16 @@ export default class Content extends Component {
 				}
 			}
 		]
-		
+		let curret=this.state.dataSource.length
 		return (
 			<Card 
 				title={<React.Fragment>
-					账户列表
+					<Button icon='plus' type='primary' onClick={()=>{this.handleAdd('add')}}>
+						新增子账户
+					</Button>	
+					<span style={{marginLeft:15}}>您还可以创建<i style={{color:'red'}}>{10-curret}</i>个子账户，共可创建<i style={{color:'red'}}>10</i>个子账户，已创建<i  style={{color:'red'}}>{curret}</i>个</span>										
 				</React.Fragment>}
-				extra={
-					<React.Fragment>
-						<Button icon='plus' onClick={()=>{this.handleAdd('add')}}>
-							新增
-						</Button>
-						<Button icon='sync' style={{marginLeft:10}} onClick={()=>{this.getTableData()}}>
-							刷新
-						</Button>						
-					</React.Fragment>
-				}
+				
 			>
 				<Table
 					columns={actColumns}
