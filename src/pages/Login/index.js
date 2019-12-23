@@ -23,7 +23,9 @@ class LoginPage extends React.Component{
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 // 模拟请求接口拿到数据
-                const res=require('@/data/authorize/login.json')
+                const res={
+                    success:false
+                }
                 if(res.success){
                     message.success('登录成功')
                     localStorage.setItem('userInfo',JSON.stringify(res.obj))
