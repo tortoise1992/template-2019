@@ -4,14 +4,46 @@
     padding: 0 24px;
     cursor: pointer;
     transition: color 0.3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
+
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+.logout-block{
+  float: right;
+  display: inline-block;
+  height: 64px;
+  width: 120px;
+  cursor: pointer;
+  text-align: center;
+  transition: all .3s;
+  font-size: 18px;
+  .logout{
+    margin-left: 20px;
+    
   }
-  
-  #components-layout-demo-custom-trigger .trigger:hover {
-    color: #1890ff;
+  &:hover{
+    background-color: #f5f5f5;
   }
-  
-  #components-layout-demo-custom-trigger .logo {
-    height: 32px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px;
+}
+.trigger{
+  display:inline-block;
+  float: left;
+  height:64px;
+  width:64px;
+  line-height: 64px;
+  text-align: center;
+  cursor:pointer;
+  transition: all .3s;
+  font-size: 18px;
+  &:hover{
+    background-color: #f5f5f5;
   }
+}

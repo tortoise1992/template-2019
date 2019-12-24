@@ -9,7 +9,7 @@
             {
                 "id":"1",
                 "title":"栏目管理",
-                "icon":"",
+                "icon":"deployment-unit",
                 "url":"/lanmu",
                 "group":"source",
                 "children":[]
@@ -17,7 +17,7 @@
             {
                 "id":"2",
                 "title":"内容管理",
-                "icon":"",
+                "icon":"profile",
                 "url":"/neirong",
                 "group":"source",
                 "children":[]
@@ -25,7 +25,7 @@
             {
                 "id":"3",
                 "title":"广告管理",
-                "icon":"",
+                "icon":"appstore",
                 "url":"/guanggao",
                 "group":"source",
                 "children":[]
@@ -33,7 +33,7 @@
             {
                 "id":"4",
                 "title":"基本设置",
-                "icon":"",
+                "icon":"setting",
                 "url":"/jiben",
                 "group":"setting",
                 "children":[]
@@ -41,7 +41,7 @@
             {
                 "id":"5",
                 "title":"SEO设置",
-                "icon":"",
+                "icon":"bug",
                 "url":"/seo",
                 "group":"setting",
                 "children":[]
@@ -49,7 +49,7 @@
             {
                 "id":"6",
                 "title":"高级选项",
-                "icon":"",
+                "icon":"build",
                 "url":"/gaoji",
                 "group":"setting",
                 "children":[{
@@ -99,7 +99,7 @@
             {
                 "id":"7",
                 "title":"插件应用",
-                "icon":"",
+                "icon":"experiment",
                 "url":"/chajian",
                 "group":"setting",
                 "children":[]
@@ -107,7 +107,7 @@
             {
                 "id":"8",
                 "title":"会员中心",
-                "icon":"",
+                "icon":"team",
                 "url":"/huiyuan",
                 "group":"setting",
                 "children":[]

@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
-export default class Index extends Component {
-  // componentDidMount() {
-  //   axios.post('/cms/login',{}).then(res=>{
-  //     console.log(res)
-  //   })
-  // }
-  
-  render() {
-    return (
-      <div>
-        
-      </div>
-    )
-  }
+import withRouter from 'umi/withRouter'
+class Index extends Component {
+	componentDidMount() {
+		this.props.history.replace('/lanmu')
+	}
+	
+	render() {
+		return <React.Fragment></React.Fragment>
+	}
 }
+
+export default withRouter(Index)

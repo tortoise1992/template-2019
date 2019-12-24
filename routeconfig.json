@@ -11,12 +11,22 @@
 	},
 	{
 		"path": "/",
-		"component": "../layouts/BasicLayout",
+		"component": "../layouts/BasicLayout",		
 		"routes": [
 			{
 				"path": "/",
 				"component": "../pages/index"
+			},
+			{
+				"path": "/lanmu",
+				"component": "../pages/Lanmu"
+			},
+			{
+				"path": "/neirong",
+				"component": "../pages/Neirong"
 			}
-		]
+		],
+		"Routes": ["./src/routes/Auth.js"]
+		
 	}
 ]

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './index.less'
-import { Form, Icon, Input, Button } from 'antd'
+import { Form, Icon, Input, Button,message } from 'antd'
+import withRouter from 'umi/withRouter'
+import {setLocal} from '../../util'
 class Login extends Component {
     state = {
         list: [
@@ -11,10 +13,19 @@ class Login extends Component {
     handleLogin=()=>{
         this.props.form.validateFields((err, fieldsValue)=>{
             if(!err){
-                // console.log(fieldsValue)
+                this.setState({
+                    loading:true
+                })
                 let res=require('./data.json')
                 if(res.success){
-
+                    this.setState({
+                        loading:false
+                    })
+                    setLocal('userInfo',res.data)
+                    message.success('登录成功')
+                    setTimeout(() => {
+                        this.props.history.replace('/')
+                    }, 1000);
                 }
             }
         })
@@ -29,14 +40,14 @@ class Login extends Component {
                     }
                 </ul>
                 <div className='login-box'>
-                    <div class="fire">
-                        <div class="flames">
-                            <div class="flame"></div>
-                            <div class="flame"></div>
-                            <div class="flame"></div>
-                            <div class="flame"></div>
+                    <div className="fire">
+                        <div className="flames">
+                            <div className="flame"></div>
+                            <div className="flame"></div>
+                            <div className="flame"></div>
+                            <div className="flame"></div>
                         </div>
-                        <div class="logs"></div>
+                        <div className="logs"></div>
                     </div>
                     <div className='web-font title'>
                         后台管理系统
@@ -76,4 +87,4 @@ class Login extends Component {
     }
 }
 
-export default Form.create()(Login)
+export default withRouter(Form.create()(Login))
