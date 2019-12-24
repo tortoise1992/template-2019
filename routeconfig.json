@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/",
+    "component": "../layouts/BasicLayout",
+    "routes": [
+      {
+        "path": "/",
+        "component": "../pages/index"
+      }
+    ]
+  }
+]
