@@ -1,132 +1,79 @@
 import React, { Component } from 'react'
-
-export default class Login extends Component {
-    componentDidMount() {
-        let data={
-            "code":200,
-            "success":true,
-            "data":{
-                "name":"ahui",
-                "token":"1jdaljdkahduiahfiaf",
-                "avatar":"",
-                "menus":[
-                    {
-                        "id":"1",
-                        "title":"栏目管理",
-                        "icon":"",
-                        "url":"/lanmu",
-                        "group":"source",
-                        "children":[]
-                    },
-                    {
-                        "id":"2",
-                        "title":"内容管理",
-                        "icon":"",
-                        "url":"/neirong",
-                        "group":"source",
-                        "children":[]
-                    },
-                    {
-                        "id":"3",
-                        "title":"广告管理",
-                        "icon":"",
-                        "url":"/guanggao",
-                        "group":"source",
-                        "children":[]
-                    },
-                    {
-                        "id":"4",
-                        "title":"基本设置",
-                        "icon":"",
-                        "url":"/jiben",
-                        "group":"setting",
-                        "children":[]
-                    },
-                    {
-                        "id":"5",
-                        "title":"SEO设置",
-                        "icon":"",
-                        "url":"/seo",
-                        "group":"setting",
-                        "children":[]
-                    },
-                    {
-                        "id":"6",
-                        "title":"高级选项",
-                        "icon":"",
-                        "url":"/gaoji",
-                        "group":"setting",
-                        "children":[{
-                            "id":"61",
-                            "title":"管理员",
-                            "icon":"",
-                            "url":"/gaoji/guanli",
-                            "group":"setting",
-                            "children":[]
-                        },{
-                            "id":"62",
-                            "title":"回收站",
-                            "icon":"",
-                            "url":"/gaoji/huishou",
-                            "group":"setting",
-                            "children":[]
-                        },{
-                            "id":"63",
-                            "title":"模板管理",
-                            "icon":"",
-                            "url":"/gaoji/moban",
-                            "group":"setting",
-                            "children":[]
-                        },{
-                            "id":"64",
-                            "title":"备份还原",
-                            "icon":"",
-                            "url":"/gaoji/beifen",
-                            "group":"setting",
-                            "children":[]
-                        },{
-                            "id":"65",
-                            "title":"频道模型",
-                            "icon":"",
-                            "url":"/gaoji/pindao",
-                            "group":"setting",
-                            "children":[]
-                        },{
-                            "id":"66",
-                            "title":"清除缓存",
-                            "icon":"",
-                            "url":"/gaoji/huancun",
-                            "group":"setting",
-                            "children":[]
-                        }]
-                    },
-                    {
-                        "id":"7",
-                        "title":"插件应用",
-                        "icon":"",
-                        "url":"/chajian",
-                        "group":"setting",
-                        "children":[]
-                    },
-                    {
-                        "id":"8",
-                        "title":"会员中心",
-                        "icon":"",
-                        "url":"/huiyuan",
-                        "group":"setting",
-                        "children":[]
-                    }
-                ]
-            },
-            "msg":"请求成功" 
-        }
+import './index.less'
+import { Form, Icon, Input, Button } from 'antd'
+class Login extends Component {
+    state = {
+        list: [
+            'html', 'react', 'vue', 'javascript', 'css', 'node', 'webpack', 'umi', 'ahuife', 'antd'
+        ],
+        loading:false
     }
-    
+    handleLogin=()=>{
+        this.props.form.validateFields((err, fieldsValue)=>{
+            if(!err){
+                // console.log(fieldsValue)
+                let res=require('./data.json')
+                if(res.success){
+
+                }
+            }
+        })
+    }
     render() {
+        const { getFieldDecorator } = this.props.form;
         return (
-            <div>
-                
+            <div className="bruce">
+                <ul className="bubble-bgwall">
+                    {
+                        this.state.list.map((item, index) => <li key={index}>{item}</li>)
+                    }
+                </ul>
+                <div className='login-box'>
+                    <div class="fire">
+                        <div class="flames">
+                            <div class="flame"></div>
+                            <div class="flame"></div>
+                            <div class="flame"></div>
+                            <div class="flame"></div>
+                        </div>
+                        <div class="logs"></div>
+                    </div>
+                    <div className='web-font title'>
+                        后台管理系统
+                    </div>
+                    <Form className="login-form">
+                        <Form.Item>
+                            {getFieldDecorator('username', {
+                                rules: [{ required: true, message: '请输入用户名!' }],
+                            })(
+                                <Input
+                                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    placeholder="用户名"
+                                />,
+                            )}
+                        </Form.Item>
+                        <Form.Item>
+                            {getFieldDecorator('password', {
+                                rules: [{ required: true, message: '请输入密码!' }],
+                            })(
+                                <Input
+                                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    type="password"
+                                    placeholder="密码"
+                                />,
+                            )}
+                        </Form.Item>
+                        <Form.Item>
+                            
+                            <Button onClick={this.handleLogin} type="primary" block loading={this.state.loading}>
+                                登录
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </div>
             </div>
         )
     }
 }
+
+export default Form.create()(Login)

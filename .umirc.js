@@ -1,6 +1,7 @@
 let routeconfig =require('./routeconfig.json')
 // ref: https://umijs.org/config/
 export default {
+  history: 'hash',
   treeShaking: true,
   disableCSSModules:true,
   routes:routeconfig,
