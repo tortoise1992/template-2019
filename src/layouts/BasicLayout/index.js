@@ -3,6 +3,8 @@ import { Layout, Menu, Icon,Modal } from 'antd';
 import './index.less'
 import {getLocal,clearLocal} from '../../util'
 import Link from 'umi/link'
+import Logo from './logo.png'
+import withRouter from 'umi/withRouter'
 const { Header, Sider, Content } = Layout;
 
 class BasicLayout extends React.Component {
@@ -73,9 +75,16 @@ class BasicLayout extends React.Component {
 	render() {
 		return (
 			<Layout style={{width:'100vw',height:'100vh'}}>
-				<Sider  style={{width:'100%',height:'100%',overflow:'auto'}} trigger={null} collapsible collapsed={this.state.collapsed}>
-					<div className="logo" />
-					<Menu theme="dark" mode="inline">
+				<Sider  style={{width:'100%',height:'100%'}} trigger={null} collapsible collapsed={this.state.collapsed}>
+					<div className="logo" onClick={()=>{
+						this.props.history.push('/home')
+					}}>
+						<img src={Logo} alt='' style={{height:50}}/>
+						{
+							!this.state.collapsed && <span>后台管理系统</span>
+						}
+					</div>
+					<Menu theme="dark" mode="inline" style={{height:'calc(100% - 64px)',overflow:'auto'}}>
 						{this.renderMenus(this.state.menus)}
 					</Menu>
 				</Sider>
@@ -107,4 +116,4 @@ class BasicLayout extends React.Component {
 		);
 	}
 }
-export default BasicLayout
+export default withRouter(BasicLayout)

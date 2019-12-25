@@ -6,3 +6,15 @@ html, body, #root {
 body {
   margin: 0;
 }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #CCCCCC;
+  height: 40px;
+  outline-offset: -1px;
+  outline: 1px solid #CCCCCC;
+  -webkit-border-radius: 2px;
+  border: 1px solid #CCCCCC;
+}

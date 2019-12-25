@@ -18,6 +18,10 @@
 				"component": "../pages/index"
 			},
 			{
+				"path": "/home",
+				"component": "../pages/Home"
+			},
+			{
 				"path": "/lanmu",
 				"component": "../pages/Lanmu"
 			},
