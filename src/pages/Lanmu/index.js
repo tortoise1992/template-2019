@@ -1,32 +1,23 @@
 import React, { Component } from 'react'
-import { Card, Button, Menu, Icon, Dropdown } from 'antd'
+import { Card, Button,Row,Col} from 'antd'
 import withRouter from 'umi/withRouter'
+import Neirong from './Neirong'
 class Lanmu extends Component {
-    handleMenuClick = () => {
-
-    }
+    
     render() {
-        let menu = (
-            <Menu onClick={this.handleMenuClick}>
-                <Menu.Item key="1">
-                    增加顶级栏目
-                </Menu.Item>
-                <Menu.Item key="2">
-                    批量增加栏目
-                </Menu.Item>
-                
-            </Menu>
-        )
+        
         return (
-            <Card title='栏目列表'
-                extra={
-                    <Dropdown overlay={menu}>
-                        <Button>
-                            栏目管理 <Icon type="down" />
-                        </Button>
-                    </Dropdown>
-                }>
-                栏目
+            <Card title='栏目列表'>
+                <div style={{marginBottom:15}}>
+                    <Button type='primary' style={{marginRight:10}}>新增顶级栏目</Button>
+                    <Button type='primary' disabled>新增子级栏目</Button>
+                </div>
+                <Row gutter={10}>
+                    <Col span={8}>1</Col>
+                    <Col span={16}>
+                        <Neirong/>
+                    </Col>
+                </Row>
             </Card>
         )
     }

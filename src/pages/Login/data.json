@@ -7,6 +7,14 @@
         "avatar":"",
         "menus":[
             {
+                "id":"0",
+                "title":"我的面板",
+                "icon":"dashboard",
+                "url":"/home",
+                "group":"source",
+                "children":[]
+            },
+            {
                 "id":"1",
                 "title":"栏目管理",
                 "icon":"deployment-unit",
