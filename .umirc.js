@@ -5,6 +5,9 @@ export default {
   treeShaking: true,
   disableCSSModules:true,
   routes:routeconfig,
+  alias: {
+    '@': require('path').resolve(__dirname, 'src'),
+  },
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
