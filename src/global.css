@@ -18,3 +18,13 @@ body {
   -webkit-border-radius: 2px;
   border: 1px solid #CCCCCC;
 }
+
+
+.ant-row.wrapper{
+  margin-bottom: 15px !important;
+}
+
+.ant-card{
+  border-radius: 4px !important;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
