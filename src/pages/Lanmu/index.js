@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Card, Button,Row,Col} from 'antd'
 import withRouter from 'umi/withRouter'
-import LieBiao from './LieBiao'
+import List from './List'
+import DrawerForm from './DrawerForm'
 class Lanmu extends Component {
-    
+    state={
+        visible:false
+    }
     render() {
         
         return (
@@ -13,9 +16,10 @@ class Lanmu extends Component {
                 </div>
                 <Row gutter={10}>
                     <Col span={24}>
-                        <LieBiao/>
+                        <List/>
                     </Col>                    
                 </Row>
+                <DrawerForm/>
             </Card>
         )
     }
