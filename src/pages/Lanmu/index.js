@@ -7,19 +7,32 @@ class Lanmu extends Component {
     state={
         visible:false
     }
+    handleAdd=()=>{
+        this.setState({
+            visible:true
+        })
+    }
+    handleClose=()=>{
+        this.setState({
+            visible:false
+        })
+    }
     render() {
         
         return (
             <Card title='栏目列表'>
                 <div style={{marginBottom:15}}>
-                    <Button type='primary'>新增顶级栏目</Button>
+                    <Button onClick={this.handleAdd} type='primary'>新增顶级栏目</Button>
                 </div>
                 <Row gutter={10}>
                     <Col span={24}>
                         <List/>
                     </Col>                    
                 </Row>
-                <DrawerForm/>
+                {
+                    this.state.visible && <DrawerForm visible={this.state.visible} handleClose={this.handleClose}/>
+                }
+                
             </Card>
         )
     }

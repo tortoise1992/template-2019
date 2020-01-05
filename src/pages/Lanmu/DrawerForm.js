@@ -2,20 +2,9 @@ import React from 'react'
 import { Drawer, Form, Button, Col, Row, Input, Select,Switch} from 'antd';
 const { Option } = Select;
 class DrawerForm extends React.Component {
-	state = { visible: false };
-
-	showDrawer = () => {
-		this.setState({
-			visible: true,
-		});
-	};
-
-	onClose = () => {
-		this.setState({
-			visible: false,
-		});
-	};
-
+	onClose=()=>{
+		this.props.handleClose()
+	}
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		return (
@@ -23,7 +12,7 @@ class DrawerForm extends React.Component {
 				title={`新增栏目`}
 				width={720}
 				onClose={this.onClose}
-				visible={false}
+				visible={this.props.visible}
 				closable={false}
 				bodyStyle={{ paddingBottom: 80 }}
 			>
@@ -78,6 +67,32 @@ class DrawerForm extends React.Component {
 					<div style={{ fontSize: 16, color: '#ccc', marginBottom: 10 }}>
 						高级选项
             		</div>
+					<Row gutter={16}>
+						<Col span={12}>
+							<Form.Item label="列表模板">
+								{getFieldDecorator('owner', {
+									rules: [{ required: true, message: '请选择列表模板' }],
+								})(
+									<Select placeholder="请选择列表模板">
+										<Option value="xiao">Xiaoxiao Fu</Option>
+										<Option value="mao">Maomao Zhou</Option>
+									</Select>,
+								)}
+							</Form.Item>
+						</Col>
+						<Col span={12}>
+							<Form.Item label="文档模板">
+								{getFieldDecorator('owner', {
+									rules: [{ required: true, message: '请选择文档模板' }],
+								})(
+									<Select placeholder="请选择文档模板">
+										<Option value="xiao">Xiaoxiao Fu</Option>
+										<Option value="mao">Maomao Zhou</Option>
+									</Select>,
+								)}
+							</Form.Item>
+						</Col>
+					</Row>
 					<Row gutter={16}>
 						<Col span={24}>
 							<Form.Item label="SEO关键字">
