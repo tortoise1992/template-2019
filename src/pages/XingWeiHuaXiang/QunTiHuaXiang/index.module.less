@@ -1,0 +1,61 @@
+.mainCard {
+    box-shadow:0px 0px 10px 0px rgba(0,0,0,0.05);
+    border-radius:4px;
+    .cardTitle {
+        font-size: 16px;
+        font-weight: bold;
+        color: rgba(0,0,0,.75);
+        p {
+            float: right;
+            font-size: 14px;
+            span {
+                color: #1890FF;
+            }
+        }
+    }
+    .listBox {
+        padding: 10px 0;
+        li {
+            line-height: 28px;
+        }
+        .rank {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 15%;
+            margin-left: 10%;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+        }
+        .selectActive:first-child {
+            color: #fff;
+            background: #1890ff;
+        }
+        .name {
+            display: inline-block;
+            width: 35%;
+            font-size: 14px;
+            color: #222;
+            text-align: left;
+        }
+        .num {
+            font-size: 14px;
+            color: #222;
+            text-align: right;
+        }
+    }
+}
+
+:global {
+    .ant-tabs-bar {
+        margin: 0;
+        background: #fff;
+    }
+    .ant-tabs-nav-scroll {
+        padding: 0 20px;
+    }
+    .ant-tabs-nav .ant-tabs-tab {
+        padding: 12px 20px;
+    }
+}

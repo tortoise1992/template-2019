@@ -12,7 +12,7 @@ module.exports = override(
     addLessLoader({
         javascriptEnabled:true,
         modifyVars: { 
-            // '@primary-color': '#4164E4',// 全局主色
+            '@primary-color': '#e0560c',// 全局主色
             // '@link-color': '#1890ff', // 链接色
             // '@success-color': '#52c41a', // 成功色
             // '@warning-color': '#faad14', // 警告色
@@ -30,6 +30,7 @@ module.exports = override(
     //绝对路径配置
     addWebpackAlias({        
         ["@"]: path.resolve(__dirname, "src"),
+        ["src"]:path.resolve(__dirname, "src")
     }),
     addWebpackPlugin(new webpackbar())
 )

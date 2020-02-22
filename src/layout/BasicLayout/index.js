@@ -25,7 +25,7 @@ class SiderDemo extends Component {
                     <div style={{height:64,textAlign:'center'}}>
                         {
                             !collapsed && <span style={{color:'#fff',lineHeight:'64px'}}>
-                                后台管理系统
+                                大数据后台管理系统
                             </span>
                         }
                     </div>
