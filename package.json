@@ -10,8 +10,6 @@
     "css-loader": "^2.1.1",
     "customize-cra": "^0.2.13",
     "bizcharts": "^3.5.5",
-    "html2canvas": "^1.0.0-rc.5",
-    "echarts": "^4.5.0",
     "js-export-excel": "^1.1.2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
