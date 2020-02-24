@@ -22,13 +22,9 @@
 				"component": "../pages/Home"
 			},
 			{
-				"path": "/lanmu",
-				"component": "../pages/Lanmu"
-			},
-			{
-				"path": "/neirong",
-				"component": "../pages/Neirong"
-			}
+				"path": "/shezhi/yingyong",
+				"component": "../pages/SheZhi/YingYongPeiZhi"
+			}	
 		],
 		"Routes": ["./src/routes/Auth.js"]
 		

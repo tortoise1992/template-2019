@@ -11,115 +11,22 @@
                 "title":"我的面板",
                 "icon":"dashboard",
                 "url":"/home",
-                "group":"source",
                 "children":[]
             },
             {
                 "id":"1",
-                "title":"栏目管理",
+                "title":"设置",
                 "icon":"deployment-unit",
-                "url":"/lanmu",
-                "group":"source",
-                "children":[]
-            },
-            {
-                "id":"2",
-                "title":"内容管理",
-                "icon":"profile",
-                "url":"/neirong",
-                "group":"source",
-                "children":[]
-            },
-            {
-                "id":"3",
-                "title":"广告管理",
-                "icon":"appstore",
-                "url":"/guanggao",
-                "group":"source",
-                "children":[]
-            },
-            {
-                "id":"4",
-                "title":"基本设置",
-                "icon":"setting",
-                "url":"/jiben",
-                "group":"setting",
-                "children":[]
-            },
-            {
-                "id":"5",
-                "title":"SEO设置",
-                "icon":"bug",
-                "url":"/seo",
-                "group":"setting",
-                "children":[]
-            },
-            {
-                "id":"6",
-                "title":"高级选项",
-                "icon":"build",
-                "url":"/gaoji",
-                "group":"setting",
-                "children":[{
-                    "id":"61",
-                    "title":"管理员",
-                    "icon":"",
-                    "url":"/gaoji/guanli",
-                    "group":"setting",
-                    "children":[]
-                },{
-                    "id":"62",
-                    "title":"回收站",
-                    "icon":"",
-                    "url":"/gaoji/huishou",
-                    "group":"setting",
-                    "children":[]
-                },{
-                    "id":"63",
-                    "title":"模板管理",
-                    "icon":"",
-                    "url":"/gaoji/moban",
-                    "group":"setting",
-                    "children":[]
-                },{
-                    "id":"64",
-                    "title":"备份还原",
-                    "icon":"",
-                    "url":"/gaoji/beifen",
-                    "group":"setting",
-                    "children":[]
-                },{
-                    "id":"65",
-                    "title":"频道模型",
-                    "icon":"",
-                    "url":"/gaoji/pindao",
-                    "group":"setting",
-                    "children":[]
-                },{
-                    "id":"66",
-                    "title":"清除缓存",
-                    "icon":"",
-                    "url":"/gaoji/huancun",
-                    "group":"setting",
-                    "children":[]
-                }]
-            },
-            {
-                "id":"7",
-                "title":"插件应用",
-                "icon":"experiment",
-                "url":"/chajian",
-                "group":"setting",
-                "children":[]
-            },
-            {
-                "id":"8",
-                "title":"会员中心",
-                "icon":"team",
-                "url":"/huiyuan",
-                "group":"setting",
-                "children":[]
-            }
+                "url":"/shezhi",
+                "children":[
+                    {
+                        "id":"11",
+                        "title":"应用配置",
+                        "icon":"",
+                        "url":"/shezhi/yingyong"
+                    }
+                ]
+            }            
         ]
     },
     "msg":"请求成功" 
