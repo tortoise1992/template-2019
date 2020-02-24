@@ -16,7 +16,7 @@ class Login extends Component {
                 this.setState({
                     loading:true
                 })
-                let res=require('./data.json')
+                let res=require('./data/data.json')
                 if(res.success){
                     this.setState({
                         loading:false
@@ -26,6 +26,8 @@ class Login extends Component {
                     setTimeout(() => {
                         this.props.history.replace('/')
                     }, 1000);
+                }else{
+                    message.err(res.data)
                 }
             }
         })
