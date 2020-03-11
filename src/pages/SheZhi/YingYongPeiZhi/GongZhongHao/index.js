@@ -31,8 +31,21 @@ class GongZhongHao extends Component {
                         </span>
                     }
                 >
-                    {getFieldDecorator('nickname', {
+                    {getFieldDecorator('name', {
                         rules: [{ required: true, message: '', whitespace: true }],
+                    })(<Input />)}
+                </Form.Item>
+                <Form.Item
+                    label={
+                        <span>
+                            微信号&nbsp;
+                            <Tooltip title="微信号">
+                                <Icon type="question-circle-o" />
+                            </Tooltip>
+                        </span>
+                    }
+                >
+                    {getFieldDecorator('weixin', {
                     })(<Input />)}
                 </Form.Item>
             </Form>
